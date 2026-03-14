@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nome": "Artefatos dos Games",
+    "miniatura": "artefatos-games",
+    "categoria": "original"
+  },
+  {
+    "id": 2,
+    "nome": "Animais de estimação",
+    "miniatura": "animais",
+    "categoria": "original"
+  },
+  {
+    "id": 3,
+    "nome": "Modelos Atômicos",
+    "miniatura": "atomicos",
+    "categoria": "original"
+  },
+  {
+    "id": 4,
+    "nome": "Esportes",
+    "miniatura": "esportes",
+    "categoria": "customizado"
+  }
+]

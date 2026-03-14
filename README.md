@@ -1,50 +1,27 @@
-# Welcome to your Expo app 👋
+# Serial3 — Virtual Expositions
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplicativo de Realidade Aumentada desenvolvido em React Native com Expo. Permite ao usuário criar exposições customizadas de objetos 3D — artefatos históricos, peças icônicas ou objetos pouco convencionais — e visualizá-los no ambiente físico através da câmera do celular.
 
-## Get started
+Projeto acadêmico desenvolvido para a disciplina de Projeto de Desenvolvimento Mobile do curso de Ciência da Computação da UNIFESO.
 
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Como rodar
 
 ```bash
-npm run reset-project
+# Instalar dependências
+npm install
+
+# Iniciar o projeto
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Escaneie o QR code com o app Expo Go (Android/iOS) para visualizar no celular.
 
-## Learn more
+## Estrutura do projeto
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```
+app/              → Telas e rotas (Expo Router)
+componentes/      → Componentes reutilizáveis
+tipos/            → Interfaces e tipos TypeScript
+dados/json/       → Dados mock (simula API futura em .NET + Postgres)
+assets/images/    → Imagens e miniaturas dos temas
+```
