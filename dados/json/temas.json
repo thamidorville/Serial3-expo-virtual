@@ -1,26 +1,171 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "nome": "Artefatos dos Games",
-    "miniatura": "artefatos-games",
-    "categoria": "original"
+    "categoria": "original",
+    "objetos": [
+      {
+        "id": "10001",
+        "nome": "Moonlight Greatsword",
+        "url_download": "...",
+        "thumbnail": "",
+        "secoes_texto": [
+          {
+            "titulo": "Contexto",
+            "conteudo": "Espadona mega irada que atira feixes lunares"
+          },
+          {
+            "titulo": "Aparições",
+            "conteudo": "Tudo quanto é jogo da fromsoftware, incluindo kings fields, trilogia dark souls, bloodborne, armored core, elden ring, etc."
+          },
+          {
+            "titulo": "Características Físicas",
+            "conteudo": "É feita de lua, aparentemente maior que um ser humano e dá muito dano"
+          }
+        ]
+      },
+      {
+        "id": "10002",
+        "nome": "Ocarina do Tempo",
+        "url_download": "...",
+        "thumbnail": "",
+        "secoes_texto": [
+          {
+            "titulo": "Contexto",
+            "conteudo": "Instrumento musical místico usado pelo Link para manipular o tempo e viajar pelo reino de Hyrule."
+          },
+          {
+            "titulo": "Poderes",
+            "conteudo": "Capaz de abrir o Templo do Tempo, mudar o clima e até teletransportar o herói para locais específicos."
+          },
+          {
+            "titulo": "Aparência",
+            "conteudo": "Um instrumento de sopro azul royal com o símbolo da Triforce no bocal."
+          }
+        ]
+      },
+      {
+        "id": "10003",
+        "nome": "Capacete do Master Chief (MJOLNIR VI)",
+        "url_download": "...",
+        "thumbnail": "",
+        "secoes_texto": [
+          {
+            "titulo": "Contexto",
+            "conteudo": "A peça mais icônica da armadura do Spartan-117, o rosto da resistência humana contra o Covenant."
+          },
+          {
+            "titulo": "Funcionalidades",
+            "conteudo": "Possui HUD integrado, lanternas táticas e serve de casa para a IA Cortana."
+          },
+          {
+            "titulo": "Design",
+            "conteudo": "Verde militar com uma viseira dourada/alaranjada reflexiva que esconde o rosto do herói."
+          }
+        ]
+      }
+    ]
   },
   {
-    "id": 2,
-    "nome": "Animais de estimação",
-    "miniatura": "animais",
-    "categoria": "original"
-  },
-  {
-    "id": 3,
-    "nome": "Modelos Atômicos",
-    "miniatura": "atomicos",
-    "categoria": "original"
-  },
-  {
-    "id": 4,
+    "id": "2",
     "nome": "Esportes",
-    "miniatura": "esportes",
-    "categoria": "customizado"
+    "categoria": "original",
+    "objetos": [
+      {
+        "id": "20001",
+        "nome": "Williams FW46 (Versão LEGO)",
+        "url_download": "...",
+        "thumbnail": "",
+        "secoes_texto": [
+          {
+            "titulo": "Descrição",
+            "conteudo": "Réplica detalhada em blocos do carro pilotado por Alex Albon em 2024."
+          },
+          {
+            "titulo": "Detalhes",
+            "conteudo": "Inclui a icônica pintura azul marinho e os patrocínios em adesivos minúsculos."
+          }
+        ]
+      },
+      {
+        "id": "20002",
+        "nome": "Troféu da Copa Libertadores",
+        "url_download": "...",
+        "thumbnail": "",
+        "secoes_texto": [
+          {
+            "titulo": "Contexto",
+            "conteudo": "A 'Glória Eterna'. O troféu mais desejado do futebol sul-americano."
+          },
+          {
+            "titulo": "Curiosidade",
+            "conteudo": "Possui as plaquinhas de todos os campeões desde 1960 na sua base de madeira."
+          }
+        ]
+      },
+      {
+        "id": "20003",
+        "nome": "The Duke (Bola de Futebol Americano)",
+        "url_download": "...",
+        "thumbnail": "",
+        "secoes_texto": [
+          {
+            "titulo": "Contexto",
+            "conteudo": "A bola oficial de jogo da NFL, feita à mão pela Wilson."
+          },
+          {
+            "titulo": "Material",
+            "conteudo": "Couro legítimo com textura granulada para melhor aderência nos lançamentos."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "nome": "Animais de Estimação",
+    "categoria": "original",
+    "objetos": [
+      {
+        "id": "30001",
+        "nome": "Cachorro",
+        "url_download": "...",
+        "thumbnail": "",
+        "secoes_texto": [
+          {
+            "titulo": "Sobre",
+            "conteudo": "O melhor amigo do homem, disponível em várias 'versões' e tamanhos."
+          }
+        ]
+      },
+      {
+        "id": "30002",
+        "nome": "Gato",
+        "url_download": "...",
+        "thumbnail": "",
+        "secoes_texto": [
+          {
+            "titulo": "Sobre",
+            "conteudo": "Pequenos felinos que mandam na casa e exigem sachê pontualmente."
+          }
+        ]
+      },
+      {
+        "id": "30003",
+        "nome": "Avestruz",
+        "url_download": "...",
+        "thumbnail": "",
+        "secoes_texto": [
+          {
+            "titulo": "Contexto",
+            "conteudo": "Sim, um pássaro gigante que corre muito e não voa."
+          },
+          {
+            "titulo": "Legalidade no Brasil",
+            "conteudo": "Não ironicamente, avestruzes são considerados animais domésticos/exóticos permitidos pelo IBAMA para criação no Brasil, sendo pets bem exóticos e interessantes para quem tem espaço!"
+          }
+        ]
+      }
+    ]
   }
 ]

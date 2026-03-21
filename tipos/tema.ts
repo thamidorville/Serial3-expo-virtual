@@ -1,8 +1,10 @@
+import { Objeto } from './objeto';
+
 export type CategoriaTema = "original" | "customizado";
 
 export interface Tema {
-  id: number;
+  id: string;
   nome: string;
-  miniatura: string;
   categoria: CategoriaTema;
+  objetos: Objeto[];
 }
