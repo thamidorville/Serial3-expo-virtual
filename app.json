@@ -9,7 +9,8 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.serial3corporation.serial3exposicaovirtual"
     },
     "android": {
       "adaptiveIcon": {
@@ -19,7 +20,8 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.serial3corporation.serial3exposicaovirtual"
     },
     "web": {
       "output": "static",
@@ -38,11 +40,32 @@
             "backgroundColor": "#000000"
           }
         }
+      ],
+      [
+        "@reactvision/react-viro",
+        {
+          "android": {
+            "xRMode": "AR"
+          },
+          "ios": {
+            "cameraUsagePermission": "O app precisa da câmera para exibir a exposição virtual em AR.",
+            "microphoneUsagePermission": "O app precisa do microfone para interações na exposição.",
+            "photosPermission": "O app precisa acessar a galeria para salvar capturas da exposição.",
+            "savephotosPermission": "O app precisa de permissão para salvar fotos da experiência AR."
+          }
+        }
       ]
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "5666f245-1632-4339-917c-677d5db84883"
+      }
+    },
+    "owner": "serial3-corporation"
   }
 }
