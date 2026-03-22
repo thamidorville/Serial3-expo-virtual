@@ -40,10 +40,8 @@ Caso você ainda não faça parte da organização no Expo:
 Se uma build de desenvolvimento (`development profile`) da sua plataforma de testes (Android oi iOS) já foi gerada por outro membro da organização, não é necessário gerar um novo, a menos que as dependências nativas tenham sido alteradas.
 
 -   **Android:** Basta baixar o APK existente pelo painel da Expo e instalar no dispositivo.
-    
--   **iOS (Simulador):** Basta baixar o build de simulador e arrastar para o software.
-    
--   **iOS (Dispositivo físico):** Requer que o dispositivo esteja registrado no perfil de provisionamento da Apple da organização antes do build ser gerado.
+        
+-   **iOS:** Requer que o dispositivo esteja registrado no perfil de provisionamento da Apple da organização antes do build ser gerado.
     
 
 #### Gerar novo build (EAS)
