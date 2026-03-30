@@ -1,26 +1,25 @@
 [
   {
     "id": 1,
-    "nome": "Artefatos dos Games",
-    "miniatura": "artefatos-games",
-    "categoria": "original"
-  },
-  {
-    "id": 2,
-    "nome": "Animais de estimação",
-    "miniatura": "animais",
-    "categoria": "original"
-  },
-  {
-    "id": 3,
-    "nome": "Modelos Atômicos",
-    "miniatura": "atomicos",
-    "categoria": "original"
-  },
-  {
-    "id": 4,
-    "nome": "Esportes",
-    "miniatura": "esportes",
-    "categoria": "customizado"
+    "nome": "Tema de teste",
+    "miniatura": "teste",
+    "categoria": "original",
+    "objetos": [
+      {
+        "id": 1,
+        "nome": "Williams FW46 de LEGO",
+        "url_glb": "https://drive.google.com/uc?export=download&id=1vmJjXvK-WH6fQH7r3TMxLrpkOxrVKDLW"
+      },
+      {
+        "id": 2,
+        "nome": "Companion Cube",
+        "url_glb": "https://drive.google.com/uc?export=download&id=1_POxMCaCfw1turFimpCOiQVDJZVksezk"
+      },
+      {
+        "id": 3,
+        "nome": "Avestruz",
+        "url_glb": "https://drive.google.com/uc?export=download&id=12y5TAsXUMdUVRqMkoxD1-uhqG57PHpwx"
+      }
+    ]
   }
 ]

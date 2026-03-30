@@ -1,24 +1,22 @@
 import {
+  Viro3DObject,
+  ViroAmbientLight,
   ViroARPlaneSelector,
   ViroARScene,
-  ViroARSceneNavigator,
-  ViroBox,
-  ViroMaterials,
+  ViroARSceneNavigator
 } from "@reactvision/react-viro";
+import { useLocalSearchParams } from "expo-router";
 import React, { useRef } from "react";
 
-ViroMaterials.createMaterials({
-  boxMaterial: {
-    diffuseColor: "#ff8a3d",
-  },
-});
 
-const PlacementScene = () => {
+const PlacementScene = (props?: any) => {
   const selectorRef = useRef<ViroARPlaneSelector>(null);
+
+  const { urlGlb } = props.sceneNavigator.viroAppProps;
 
   return (
     <ViroARScene
-      anchorDetectionTypes={["PlanesHorizontal", "PlanesVertical"]}
+      anchorDetectionTypes={"PlanesHorizontal"}
       onAnchorFound={(a) => selectorRef.current?.handleAnchorFound(a)}
       onAnchorUpdated={(a) => selectorRef.current?.handleAnchorUpdated(a)}
       onAnchorRemoved={(a) => a && selectorRef.current?.handleAnchorRemoved(a)}
@@ -26,35 +24,35 @@ const PlacementScene = () => {
       <ViroARPlaneSelector
         ref={selectorRef}
         alignment="Horizontal"
-        minWidth={0.25}
-        minHeight={0.25}
+        minWidth={0.15}
+        minHeight={0.15}
         useActualShape={false}
-        
-        hideOverlayOnSelection={true}
-        onPlaneDetected={(anchor) => {
-          const width = anchor.width ?? 0;
-          const height = anchor.height ?? 0;
-          return width >= 0.25 && height >= 0.25;
-        }}
-        onPlaneSelected={(anchor, tapPosition) => {
-          console.log("Plane selected:", anchor.anchorId);
-          if (tapPosition) {
-            console.log("Tap position:", tapPosition);
-          }
-        }}
       >
-        <ViroBox
-          position={[0, 0.05, 0]}
-          scale={[0.1, 0.1, 0.1]}
-          materials={["boxMaterial"]}
+        <ViroAmbientLight
+          color="#FFFFFF"
         />
+        <Viro3DObject
+          source={{ uri: urlGlb }}
+          position={[0, 0, 0]}
+          scale={[0.1, 0.1, 0.1]}
+          type="GLB"
+          onClick={() => {
+            console.log("touch");
+          }}        />
       </ViroARPlaneSelector>
     </ViroARScene>
   );
 };
 
-const App = () => (
-  <ViroARSceneNavigator initialScene={{ scene: PlacementScene }} />
-);
+const App = () => {
+  const { urlGlb } = useLocalSearchParams();
+
+  return (
+    <ViroARSceneNavigator
+      initialScene={{ scene: PlacementScene }}
+      viroAppProps={{ urlGlb }}
+    />
+  );
+}
 
 export default App;

@@ -1,41 +1,11 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Tabs } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import { Stack } from "expo-router";
 
-export default function RootLayout() {
+export default function Layout() {
   return (
-    <React.Fragment>
-      <StatusBar style="auto" />
-      <Tabs
-        screenOptions={{ tabBarActiveTintColor: '#9B59B6' }}>
-        <Tabs.Screen
-          name="index"
-          options={{
-            title: 'Temas',
-            headerShown: false,
-            tabBarIcon: ({ color, size }) => (
-              <FontAwesome
-                name="picture-o"
-                size={size}
-                color={color} />
-            )
-          }}
-        />
-        <Tabs.Screen
-          name="exposicaoAR"
-          options={{
-            title: 'Exposição AR',
-            headerShown: false,
-            tabBarIcon: ({ color, size }) => (
-              <FontAwesome
-                name="cube"
-                size={size}
-                color={color} />
-            )
-          }}
-        />
-      </Tabs>
-    </React.Fragment>
-  );
+    <Stack>
+      <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen name="[tema]/index" options={{ title: "Objetos do Tema" }} />
+      <Stack.Screen name="exposicaoAR" options={{ title: "Exposição AR" }} />
+    </Stack>
+  )
 }

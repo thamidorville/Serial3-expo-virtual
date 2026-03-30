@@ -1,31 +1,43 @@
 import miniaturas from "@/assets/images/miniaturas";
 import { Tema } from "@/tipos/tema";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { useRouter } from "expo-router";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
 interface CartaoTemaProps {
   tema: Tema;
 }
 
 export function CartaoTema({ tema }: CartaoTemaProps) {
-  return (
-    <View style={estilos.cartao}>
-      <View style={estilos.miniatura}>
-        {miniaturas[tema.miniatura] ? (
-          <Image source={miniaturas[tema.miniatura]} style={estilos.imagem} />
-        ) : (
-          <View style={estilos.imagemVazia} />
-        )}
-      </View>
+  const router = useRouter();
 
-      <View style={estilos.info}>
-        <Text style={estilos.nome}>{tema.nome}</Text>
-        {tema.categoria === "original" && (
-          <View style={estilos.badge}>
-            <Text style={estilos.badgeTexto}>Serial3 Originals</Text>
-          </View>
-        )}
+  const handlePress = () => {
+    router.push({
+      pathname: "/objetosTema",
+      params: { tema: JSON.stringify(tema) }, 
+    });
+  };
+
+  return (
+    <Pressable onPress={handlePress} android_ripple={{ color: "#E0E0E0" }}>
+      <View style={estilos.cartao}>
+        <View style={estilos.miniatura}>
+          {miniaturas[tema.miniatura] ? (
+            <Image source={miniaturas[tema.miniatura]} style={estilos.imagem} />
+          ) : (
+            <View style={estilos.imagemVazia} />
+          )}
+        </View>
+
+        <View style={estilos.info}>
+          <Text style={estilos.nome}>{tema.nome}</Text>
+          {tema.categoria === "original" && (
+            <View style={estilos.badge}>
+              <Text style={estilos.badgeTexto}>Serial3 Originals</Text>
+            </View>
+          )}
+        </View>
       </View>
-    </View>
+    </Pressable>
   );
 }
 

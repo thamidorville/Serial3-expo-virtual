@@ -5,6 +5,7 @@ const miniaturas: Record<string, ImageSourcePropType> = {
   "animais": require("./animais.png"),
   "atomicos": require("./atomicos.png"),
   "esportes": require("./esportes.png"),
+  "teste": require("./miniatura-teste.png")
 };
 
 export default miniaturas;
