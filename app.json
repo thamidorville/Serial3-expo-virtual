@@ -10,7 +10,14 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.serial3corporation.serial3exposicaovirtual"
+      "bundleIdentifier": "com.serial3corporation.serial3exposicaovirtual",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "O app precisa acessar a galeria para salvar capturas da exposição.",
+        "NSPhotoLibraryAddUsageDescription": "Allow $(PRODUCT_NAME) to save photos",
+        "NSCameraUsageDescription": "O app precisa da câmera para exibir a exposição virtual em AR.",
+        "NSMicrophoneUsageDescription": "O app precisa do microfone para interações na exposição.",
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
