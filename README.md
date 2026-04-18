@@ -7,7 +7,7 @@ O Prebuild é o processo de geração automática dos diretórios nativos (/andr
 
 ### Requisitos
 * Dispositivo iOS físico.
-* Node e Watchman ([a documentação oficial do React Native recomenda instalar](https://reactnative.dev/docs/set-up-your-environment?platform=ios&os=macos) via [Homebrew](https://brew.sh/))
+* Node e Watchman ([a documentação oficial do React Native](https://reactnative.dev/docs/set-up-your-environment?platform=ios&os=macos) recomenda instalar via [Homebrew](https://brew.sh/))
 * Modo Desenvolvedor ativado no dispositivo (Ajustes > Privacidade e Segurança).
 * Computador com macOS.
 * [Xcode](https://developer.apple.com/documentation/safari-developer-tools/installing-xcode-and-simulators) instalado: Necessário para fornecer o compilador e as ferramentas de build da Apple.
@@ -30,7 +30,7 @@ O Prebuild é o processo de geração automática dos diretórios nativos (/andr
 
 ### Requisitos
 * Dispositivo Android.
-* Node e JDK ([a documentação oficial do React Native recomenda instalar](https://reactnative.dev/docs/set-up-your-environment?platform=android&os=windows) via [Chocolatey](https://chocolatey.org/install))
+* Node e JDK ([a documentação oficial do React Native](https://reactnative.dev/docs/set-up-your-environment?platform=android&os=windows) recomenda instalar via [Chocolatey](https://chocolatey.org/install))
 * Depuração USB ativada nas Opções do Desenvolvedor do Android.
 * [Android Studio e SDK](https://developer.android.com/studio?hl=pt-br): É necessário ter o SDK Platform e as Build-Tools instaladas para que o sistema consiga compilar o binário nativo.
 
