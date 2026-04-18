@@ -3,7 +3,7 @@
     "id": 1,
     "nome": "Tema de teste",
     "miniatura": "teste",
-    "categoria": "original",
+    "temaOriginal": true,
     "objetos": [
       {
         "id": 1,
