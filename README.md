@@ -51,7 +51,7 @@ O Prebuild é o processo de geração automática dos diretórios nativos (/andr
 ## Observações Importantes
 
 ### Quando usar os comandos de Run
-Utilize 'npx expo run:ios' ou 'npx expo run:android' apenas quando houver mudanças no app.json, instalação de novas bibliotecas nativas ou se as pastas /ios ou /android forem removidas.
+Utilize `npx expo run:ios` ou `npx expo run:android` apenas quando houver mudanças no app.json, instalação de novas bibliotecas nativas ou se as pastas /ios ou /android forem removidas.
 
 ### Desenvolvimento Diário
 Para mudanças de código (como criar uma nova tela, alterar o _layout.tsx ou mexer em estilos), utilize apenas:
