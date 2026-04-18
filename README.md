@@ -8,7 +8,7 @@ O Prebuild é o processo de geração automática dos diretórios nativos (/andr
 ### Requisitos
 * Dispositivo iOS físico.
 * Node e Watchman ([a documentação oficial do React Native](https://reactnative.dev/docs/set-up-your-environment?platform=ios&os=macos) recomenda instalar via [Homebrew](https://brew.sh/))
-* Modo Desenvolvedor ativado no dispositivo (Ajustes > Privacidade e Segurança).
+* Modo Desenvolvedor ativado no dispositivo móvel ([veja a documentação ocial da Apple](https://developer.apple.com/documentation/xcode/enabling-developer-mode-on-a-device#Turn-on-Developer-Mode-in-iOS-iPadOS-watchOS-and-visionOS)).
 * Computador com macOS.
 * [Xcode](https://developer.apple.com/documentation/safari-developer-tools/installing-xcode-and-simulators) instalado: Necessário para fornecer o compilador e as ferramentas de build da Apple.
 
