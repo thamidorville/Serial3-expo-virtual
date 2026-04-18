@@ -1,97 +1,62 @@
 
-# Serial3 — Virtual Expositions
+# Guia de Execução do Aplicativo (Prebuild)
 
-Aplicativo de Realidade Aumentada desenvolvido em React Native com Expo. Permite ao usuário criar exposições customizadas de objetos 3D — artefatos históricos, peças icônicas ou objetos pouco convencionais — e visualizá-los no ambiente físico através da câmera do celular.
+O Prebuild é o processo de geração automática dos diretórios nativos (/android e /ios) a partir das configurações definidas no arquivo app.json (ou app.config.js). Ele transforma um projeto que continha apenas código JavaScript/TypeScript em um projeto mobile nativo completo, pronto para ser compilado.
 
-Projeto acadêmico desenvolvido para a disciplina de Projeto de Desenvolvimento Mobile do curso de Ciência da Computação da UNIFESO.
+## Instruções para iOS
 
-## Como rodar
+### Requisitos
+* Dispositivo iOS físico.
+* Node e Watchman ([a documentação oficial do React Native recomenda instalar](https://reactnative.dev/docs/set-up-your-environment?platform=ios&os=macos) via [Homebrew](https://brew.sh/))
+* Modo Desenvolvedor ativado no dispositivo (Ajustes > Privacidade e Segurança).
+* Computador com macOS.
+* [Xcode](https://developer.apple.com/documentation/safari-developer-tools/installing-xcode-and-simulators) instalado: Necessário para fornecer o compilador e as ferramentas de build da Apple.
 
-### 1. Instalação de dependências
 
-```bash
-npm install
-```
+### Passo a passo
+1. Conecte o iPhone ao Mac via USB.
+2. Se aparecer o pop-up 'Confiar neste Computador?' no iPhone, confirme.
+3. No terminal, dentro da pasta do projeto, execute:
+   ```bash
+   npx expo prebuild
+   ```
+   (Nota: Use `npx expo prebuild --clean` para uma instalação limpa, ciente de que isso deleta alterações manuais nas pastas /ios ou /android).
+4. Para compilar e instalar no celular, execute:
+   ```bash
+   npx expo run:ios
+   ```
 
-### 2. Execução via Expo Go (funcionalidades limitadas)
+## Instruções para Android
 
-O Expo Go pode ser utilizado para visualizar a interface e navegação, porém, funcionalidades de Realidade Aumentada (Viro React) não estarão disponíveis.
+### Requisitos
+* Dispositivo Android.
+* Node e JDK ([a documentação oficial do React Native recomenda instalar](https://reactnative.dev/docs/set-up-your-environment?platform=android&os=windows) via [Chocolatey](https://chocolatey.org/install))
+* Depuração USB ativada nas Opções do Desenvolvedor do Android.
+* [Android Studio e SDK](https://developer.android.com/studio?hl=pt-br): É necessário ter o SDK Platform e as Build-Tools instaladas para que o sistema consiga compilar o binário nativo.
 
+### Passo a passo
+1. Conecte o dispositivo Android ao computador via USB.
+2. Certifique-se de que o dispositivo foi reconhecido rodando 'adb devices' no terminal.
+3. No terminal, dentro da pasta do projeto, execute:
+   ```bash
+   npx expo prebuild
+   ```
+   (Nota: Use `npx expo prebuild --clean` para uma instalação limpa, ciente de que isso deleta alterações manuais nas pastas /ios ou /android).
+4. Para compilar e instalar no celular, execute:
+   ```bash
+   npx expo run:android
+   ```
+
+
+## Observações Importantes
+
+### Quando usar os comandos de Run
+Utilize 'npx expo run:ios' ou 'npx expo run:android' apenas quando houver mudanças no app.json, instalação de novas bibliotecas nativas ou se as pastas /ios ou /android forem removidas.
+
+### Desenvolvimento Diário
+Para mudanças de código (como criar uma nova tela, alterar o _layout.tsx ou mexer em estilos), utilize apenas:
 ```bash
 npx expo start
 ```
+Com o app já instalado no celular, as mudanças serão refletidas instantaneamente via Fast Refresh, sem necessidade de nova compilação nativa.
 
-### 3. Execução via Development Client (processo um pouco complexo, mas que irá cobrir todas as funcionalidades)
-
-Para utilizar as funcionalidades de Realidade Aumentada, é necessário um build de desenvolvimento. Como o projeto está vinculado a uma organização, o gerenciamento de builds é centralizado no EAS.
-
-#### Acesso à Organização
-
-Caso você ainda não faça parte da organização no Expo:
-
-1.  [Crie uma conta no Expo](https://expo.dev/signup)
-    
-2.  Envie uma solicitação de convite seguida do e-mail cadastrado para felipegomes@unifeso.com.vc *(ou apenas solicite no grupo do WhatsApp caso seja integrante da equipe)*
-    
-3.  Aceite o convite enviado para o seu e-mail ou através do painel de notificações do Expo
-
-#### Uso de builds existentes
-
-Se uma build de desenvolvimento (`development profile`) da sua plataforma de testes (Android oi iOS) já foi gerada por outro membro da organização, não é necessário gerar um novo, a menos que as dependências nativas tenham sido alteradas.
-
--   **Android:** Basta baixar o APK existente pelo painel da Expo e instalar no dispositivo.
-        
--   **iOS:** Requer que o dispositivo esteja registrado no perfil de provisionamento da Apple da organização antes do build ser gerado.
-    
-
-#### Gerar novo build (EAS)
-
-Caso precise gerar um novo binário, utilize os comandos abaixo:
-
-```bash
-# Android
-eas build --profile development --platform android
-
-# iOS (exige configuração adicional após rodar o comando)
-eas build --profile development --platform io
-```
-
-#### Iniciando o servidor de desenvolvimento
-
-Após instalar o build (APK/APP) no seu dispositivo ou simulador, inicie o servidor local para carregar o código JavaScript:
-
-```bash
-npx expo start --dev-client
-```
-
-### 4. Execução via Local Prebuild (processo mais simples, porém exige a instalação de ferramentas externas e, no caso do iOS, só funciona se for feito em MacBook)
-
-
-Esta opção é ideal para quem possui as ferramentas de desenvolvimento nativas instaladas (Android Studio / Xcode) e deseja rodar o projeto sem depender dos servidores da Expo ou de contas na organização.
-
-**Requisitos:** 
- - Android: Android Studio e SDK configurados.
- - iOS: macOS e Xcode instalados (necessário para gerar o binário de iOS).
-
-Comandos para gerar e rodar o código nativo localmente:
-
-```bash
-# Gerar as pastas /android e /ios localmente
-npx expo prebuild
-
-# Executar no Android
-npx expo run:android
-
-# Executar no iOS (Somente macOS)
-npx expo run:ios
-```
-
-## Estrutura do projeto
-
-```
-app/              → Telas e rotas (Expo Router)
-componentes/      → Componentes reutilizáveis
-tipos/            → Interfaces e tipos TypeScript
-dados/json/       → Dados mock (simula API futura em .NET + Postgres)
-assets/images/    → Imagens e miniaturas dos temas
-```
