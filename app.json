@@ -63,7 +63,10 @@
             "savephotosPermission": "O app precisa de permissão para salvar fotos da experiência AR."
           }
         }
-      ]
+      ],
+      "expo-sqlite",
+      "expo-font",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
