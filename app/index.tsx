@@ -2,14 +2,29 @@ import { BotaoCriarTema } from "@/componentes/BotaoCriarTema";
 import { CabecalhoSecao } from "@/componentes/CabecalhoSecao";
 import { CabecalhoTela } from "@/componentes/CabecalhoTela";
 import { CartaoTema } from "@/componentes/CartaoTema";
-import temasMock from "@/dados/json/temas.json";
 import { Tema } from "@/tipos/tema";
+import { useFocusEffect } from "expo-router";
+import { useSQLiteContext } from "expo-sqlite";
+import React, { useCallback } from "react";
 import { Alert, FlatList, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const temas = temasMock as Tema[];
+//const temas = temasMock as Tema[];
 
 export default function TelaTemas() {
+  const [temas, setTemas] = React.useState<Tema[]>([]);
+  const database = useSQLiteContext();
+  useFocusEffect(
+    useCallback(() => {
+      loadData(); 
+    }, [])
+  );
+
+  const loadData = async () => {
+    const resultado = await database.getAllAsync<Tema> ("SELECT * FROM temas")
+    setTemas(resultado);
+  }
+
   return (
     <SafeAreaView style={estilos.container}>
       <FlatList
@@ -47,3 +62,7 @@ const estilos = StyleSheet.create({
     paddingBottom: 32,
   },
 });
+function loadData() {
+  throw new Error("Function not implemented.");
+}
+

@@ -1,47 +1,65 @@
-import { Tema } from "@/tipos/tema";
+import { Objeto } from "@/tipos/objeto";
 import { useNavigation } from "@react-navigation/native";
-import { useLocalSearchParams, useRouter } from "expo-router";
-import { useLayoutEffect } from "react";
+import { useFocusEffect, useLocalSearchParams, useRouter } from "expo-router";
+import { useSQLiteContext } from "expo-sqlite";
+import React, { useCallback, useLayoutEffect } from "react";
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function ObjetosTema() {
   const navigation = useNavigation();
   const router = useRouter();
-  const { tema: temaString } = useLocalSearchParams();
-  
-  const tema = temaString ? (JSON.parse(temaString as string) as Tema) : null;
+  const { temaId, temaNome } = useLocalSearchParams();
+  const database = useSQLiteContext();
+
+  const idTema = temaId ? Number(temaId) : null;
+
+  const [objetos, setObjetos] = React.useState<Objeto[]>([]);
 
   useLayoutEffect(() => {
-    if (tema) {
+    if (idTema) {
       navigation.setOptions({
-        title: tema.nome,
+        title: temaNome ? String(temaNome) : "Objetos",
       });
     }
-  }, [tema, navigation]);
+  }, [idTema, temaNome, navigation]);
 
   const handleObjetoPress = (urlGlb: string) => {
     router.push({
       pathname: "/exposicaoAR",
       params: {
-        urlGlb
+        urlGlb,
       },
     });
   };
 
-  if (!tema) {
+  useFocusEffect(
+    useCallback(() => {
+      const loadData = async () => {
+        if (!idTema) return;
+        const resultado = await database.getAllAsync<Objeto>(
+          `SELECT * FROM objetos WHERE tema_id = ${idTema}`
+        );
+        setObjetos(resultado ?? []);
+      };
+
+      loadData();
+    }, [idTema])
+  );
+
+  if (!idTema) {
     return (
       <SafeAreaView>
-        <Text>Tema não encontrado</Text>
+        <Text>ID do tema não informado</Text>
       </SafeAreaView>
     );
   }
 
   return (
     <SafeAreaView style={estilos.container}>
-      <ScrollView>        
+      <ScrollView>
         <View style={estilos.containerObjetos}>
-          {tema.objetos.map((objeto) => (
+          {objetos.map((objeto) => (
             <TouchableOpacity
               key={objeto.id}
               style={estilos.card}

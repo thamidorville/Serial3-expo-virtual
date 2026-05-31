@@ -13,7 +13,7 @@ export function CartaoTema({ tema }: CartaoTemaProps) {
   const handlePress = () => {
     router.push({
       pathname: "/objetosTema",
-      params: { tema: JSON.stringify(tema) }, 
+      params: { temaId: String(tema.id), temaNome: tema.nome },
     });
   };
 
