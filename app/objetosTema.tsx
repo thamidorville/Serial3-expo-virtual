@@ -26,11 +26,14 @@ export default function ObjetosTema() {
     }
   }, [idTema, temaNome, navigation]);
 
-  const handleObjetoPress = (urlGlb: string) => {
+  const handleObjetoPress = (id: number, nome: string, urlGlb: string) => {
     router.push({
-      pathname: "/exposicaoAR",
+      pathname: "/objeto",
       params: {
+        objetoId: String(id),
+        nome,
         urlGlb,
+        temaOriginal: String(temaOriginal),
       },
     });
   };
@@ -89,7 +92,7 @@ export default function ObjetosTema() {
           return (
             <TouchableOpacity
               style={estilos.card}
-              onPress={() => handleObjetoPress(item.url_glb)}
+              onPress={() => handleObjetoPress(Number(item.id), item.nome, item.url_glb)}
             >
               <Image
                 source={require("@/assets/images/miniatura-teste.png")}

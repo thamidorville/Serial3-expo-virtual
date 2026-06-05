@@ -11,6 +11,7 @@ export default function Layout() {
         <Stack>
           <Stack.Screen name="index" options={{ headerShown: false }} />
           <Stack.Screen name="objetosTema" options={{ title: "Objetos do Tema" }} />
+          <Stack.Screen name="objeto" options={{ title: "Objeto" }} />
           <Stack.Screen name="exposicaoAR" options={{ title: "Exposição AR" }} />
         </Stack>
       </SQLiteProvider>
