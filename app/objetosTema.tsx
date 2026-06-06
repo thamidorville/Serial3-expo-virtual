@@ -14,7 +14,8 @@ export default function ObjetosTema() {
   const database = useSQLiteContext();
 
   const idTema = temaId ? Number(temaId) : null;
-  const temaOriginal = original === 'true';
+  const temaOriginal = original === '1';
+  console.log("tema é " + original);
 
   const [objetos, setObjetos] = React.useState<Objeto[]>([]);
 

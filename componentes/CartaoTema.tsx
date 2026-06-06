@@ -13,9 +13,11 @@ export function CartaoTema({ tema }: CartaoTemaProps) {
   const handlePress = () => {
     router.push({
       pathname: "/objetosTema",
-      params: { temaId: String(tema.id), temaNome: tema.nome, original: String(tema.temaOriginal) },
+      params: { temaId: String(tema.id), temaNome: tema.nome, original: String(tema.tema_original) },
     });
   };
+
+  console.log(tema.tema_original)
 
   return (
     <Pressable onPress={handlePress} android_ripple={{ color: "#E0E0E0" }}>
@@ -30,7 +32,7 @@ export function CartaoTema({ tema }: CartaoTemaProps) {
 
         <View style={estilos.info}>
           <Text style={estilos.nome}>{tema.nome}</Text>
-          {tema.temaOriginal && (
+          {tema.tema_original && (
             <View style={estilos.badge}>
               <Text style={estilos.badgeTexto}>Serial3 Originals</Text>
             </View>

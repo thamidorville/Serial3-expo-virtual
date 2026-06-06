@@ -14,13 +14,37 @@ export default function TelaObjeto() {
   const id = Number(objetoId);
   const nomeObjeto = String(nome ?? "Objeto");
   const urlModelo = String(urlGlb ?? "");
-  const ehTemaOriginal = temaOriginal === "true";
+  const ehTemaOriginal = temaOriginal === '1';
 
   const [modalVisivel, setModalVisivel] = useState(false);
 
   useLayoutEffect(() => {
-    navigation.setOptions({ title: nomeObjeto });
-  }, [nomeObjeto, navigation]);
+    navigation.setOptions({
+      title: nomeObjeto,
+      headerRight: () =>
+        !ehTemaOriginal ? (
+          <View style={estilos.headerAcoes}>
+            <TouchableOpacity
+              style={estilos.headerBotao}
+              onPress={handleEditarObjeto}
+              accessibilityRole="button"
+              accessibilityLabel="Editar objeto"
+            >
+              <Ionicons name="pencil-outline" size={22} color="#6B6B6B" />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={estilos.headerBotao}
+              onPress={() => setModalVisivel(true)}
+              accessibilityRole="button"
+              accessibilityLabel="Excluir objeto"
+            >
+              <Ionicons name="trash-outline" size={22} color="#E74C3C" />
+            </TouchableOpacity>
+          </View>
+        ) : null,
+    });
+  }, [ehTemaOriginal, nomeObjeto, navigation]);
 
   const handleVisualizarAR = () => {
     router.push({
@@ -51,28 +75,6 @@ export default function TelaObjeto() {
         </View>
 
         <Text style={estilos.nomeObjeto}>{nomeObjeto}</Text>
-
-        {!ehTemaOriginal && (
-          <View style={estilos.iconesContainer}>
-            <TouchableOpacity
-              style={estilos.botaoIcone}
-              onPress={handleEditarObjeto}
-              accessibilityRole="button"
-              accessibilityLabel="Editar objeto"
-            >
-              <Ionicons name="pencil-outline" size={22} color="#6B6B6B" />
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={estilos.botaoIcone}
-              onPress={() => setModalVisivel(true)}
-              accessibilityRole="button"
-              accessibilityLabel="Excluir objeto"
-            >
-              <Ionicons name="trash-outline" size={22} color="#E74C3C" />
-            </TouchableOpacity>
-          </View>
-        )}
 
         <View style={estilos.botoesContainer}>
           <TouchableOpacity
@@ -154,16 +156,14 @@ const estilos = StyleSheet.create({
     textAlign: "center",
     marginBottom: 16,
   },
-  iconesContainer: {
+  headerAcoes: {
     flexDirection: "row",
     gap: 16,
-    marginBottom: 32,
   },
-  botaoIcone: {
+  headerBotao: {
     width: 44,
     height: 44,
     borderRadius: 22,
-    backgroundColor: "#F5F5F5",
     justifyContent: "center",
     alignItems: "center",
   },

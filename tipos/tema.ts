@@ -4,6 +4,6 @@ export interface Tema {
   id: number;
   nome: string;
   miniatura: string;
-  temaOriginal: boolean;
+  tema_original: number;
   objetos: Objeto[];
 }
