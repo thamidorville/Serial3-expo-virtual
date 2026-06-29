@@ -22,7 +22,7 @@ export const SCHEMA_SQL = `
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     objeto_id INTEGER NOT NULL,
     titulo TEXT NOT NULL,
-    conteudo TEXT NOT NULL CHECK (LENGTH(conteudo) <= 140),
+    conteudo TEXT NOT NULL CHECK (LENGTH(conteudo) <= 280),
     FOREIGN KEY (objeto_id) REFERENCES objetos (id) ON DELETE CASCADE,
     UNIQUE (objeto_id, titulo, conteudo)
   );

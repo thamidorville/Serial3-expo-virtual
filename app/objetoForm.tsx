@@ -238,12 +238,12 @@ export default function ObjetoForm() {
               style={[estilos.input, estilos.inputMultilinha]}
               value={info.conteudo}
               onChangeText={(v) => atualizarInformacao(indice, "conteudo", v)}
-              placeholder="Conteúdo (máx. 140 caracteres)"
+              placeholder="Conteúdo (máx. 280 caracteres)"
               placeholderTextColor="#AAAAAA"
-              maxLength={140}
+              maxLength={280}
               multiline
             />
-            <Text style={estilos.contador}>{info.conteudo.length}/140</Text>
+            <Text style={estilos.contador}>{info.conteudo.length}/280</Text>
           </View>
         ))}
 
