@@ -109,6 +109,7 @@ const NativeARScreen = () => {
     ViroARScene,
     ViroARSceneNavigator,
     ViroARTrackingTargets,
+    ViroDirectionalLight,
   } = Viro;
 
   // Registrar o alvo uma única vez por sessão
@@ -137,7 +138,12 @@ const NativeARScreen = () => {
 
     return (
       <ViroARScene>
-        <ViroAmbientLight color="#FFFFFF" />
+        <ViroAmbientLight color="#FFFFFF" intensity={200} />
+        <ViroDirectionalLight
+          color="#FFFFFF"
+          direction={[0, -1, -0.2]}
+          intensity={800}
+        />
         <ViroARImageMarker
           target="qrCode"
           opacity={appProps.objetoCarregado ? 1 : 0}

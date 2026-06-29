@@ -31,7 +31,7 @@ const LARGURA_BOTAO = 3.6; // largura de cada botão de seção
 const ESPACAMENTO = ALTURA_BOTAO + 0.4; // distância vertical entre botões
 const Y_VOLTAR = 0; // posição (local) do botão "Voltar" no modo detalhe
 const LARGURA_PAINEL = 3.4; // largura do bloco de texto (modo detalhe)
-const ALTURA_PAINEL = 2.6; // altura do bloco de texto (modo detalhe)
+const ALTURA_PAINEL = 3.8; // altura do bloco de texto (modo detalhe)
 // Bloco de texto centrado acima do botão "Voltar" (base do bloco fica em y ≥ 0).
 const ALTURA_TEXTO_DETALHE = Y_VOLTAR + 0.7 + ALTURA_PAINEL / 2;
 
@@ -89,10 +89,7 @@ export function PainelInformacoesAR({
             text={informacao.titulo}
             position={[0, ALTURA_TEXTO_DETALHE + ALTURA_PAINEL / 2 - 0.4, 0.05]}
             width={LARGURA_PAINEL - 0.4}
-            height={0.6}
-            textAlign="center"
-            textAlignVertical="center"
-            textLineBreakMode="wordwrap"
+            height={0.7}
             style={estiloTitulo}
           />
           <ViroText
@@ -100,9 +97,6 @@ export function PainelInformacoesAR({
             position={[0, ALTURA_TEXTO_DETALHE - 0.2, 0.05]}
             width={LARGURA_PAINEL - 0.4}
             height={ALTURA_PAINEL - 1.2}
-            textAlign="center"
-            textAlignVertical="top"
-            textLineBreakMode="wordwrap"
             style={estiloConteudo}
           />
           <BotaoTextoAR
@@ -140,15 +134,21 @@ const estilos = {
 };
 
 const estiloTitulo = {
-  fontFamily: "monospace",
-  fontSize: 22,
+  fontFamily: "Arial",
+  fontSize: 26,
   fontWeight: "700" as const,
   color: "#FFFFFF",
+  textAlign: "center" as const,
+  textAlignVertical: "center" as const,
+  textLineBreakMode: "wordwrap" as const,
 };
 
 const estiloConteudo = {
-  fontFamily: "monospace",
-  fontSize: 16,
+  fontFamily: "Arial",
+  fontSize: 20,
   fontWeight: "400" as const,
   color: "#FFFFFF",
+  textAlign: "center" as const,
+  textAlignVertical: "top" as const,
+  textLineBreakMode: "wordwrap" as const,
 };
