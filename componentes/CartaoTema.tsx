@@ -32,7 +32,7 @@ export function CartaoTema({ tema }: CartaoTemaProps) {
 
         <View style={estilos.info}>
           <Text style={estilos.nome}>{tema.nome}</Text>
-          {tema.tema_original && (
+          {tema.tema_original === 1 && (
             <View style={estilos.badge}>
               <Text style={estilos.badgeTexto}>Serial3 Originals</Text>
             </View>

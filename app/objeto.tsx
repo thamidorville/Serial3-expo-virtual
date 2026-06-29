@@ -49,7 +49,7 @@ export default function TelaObjeto() {
   const handleVisualizarAR = () => {
     router.push({
       pathname: "/exposicaoAR",
-      params: { urlGlb: urlModelo },
+      params: { urlGlb: urlModelo, objetoId: String(id) },
     });
   };
 
@@ -60,7 +60,15 @@ export default function TelaObjeto() {
   };
 
   const handleEditarObjeto = () => {
-    // Funcionalidade será implementada em breve
+    router.push({
+      pathname: "/objetoForm",
+      params: {
+        objetoId: String(id),
+        nome: nomeObjeto,
+        urlGlb: urlModelo,
+        temaOriginal: String(temaOriginal),
+      },
+    });
   };
 
   return (
